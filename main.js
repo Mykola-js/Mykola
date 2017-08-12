@@ -29,3 +29,6 @@ let users= usersDataArray.map( function(item){
 users.map( function(item){
 	item.shift()
 } )
+
+// concating all arrays in one
+let users_All= [].concat.apply([], users)
