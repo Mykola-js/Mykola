@@ -1,5 +1,6 @@
 let fs= require('fs');
 let AdmZip = require('adm-zip');
+let csv_sync_parse = require('csv-parse/lib/sync');
 
 let zip = new AdmZip("./model/archives/data.zip");
     let zipEntries = zip.getEntries(); 
@@ -19,4 +20,7 @@ let usersDataArray= users_files_names.map(
 		return zip.readAsText(item)
 } )
 
-console.log(usersDataArray)
+// field delimiter '||'
+let users= usersDataArray.map( function(item){
+	return csv_sync_parse( item, {delimiter: '||'} )
+} )
