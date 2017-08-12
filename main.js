@@ -24,3 +24,8 @@ let usersDataArray= users_files_names.map(
 let users= usersDataArray.map( function(item){
 	return csv_sync_parse( item, {delimiter: '||'} )
 } )
+
+// removing field declarations
+users.map( function(item){
+	item.shift()
+} )
