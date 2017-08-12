@@ -13,3 +13,10 @@ let zip = new AdmZip("./model/archives/data.zip");
 } )
 
 
+// outputs the content users_files_names
+let usersDataArray= users_files_names.map( 
+	function(item){
+		return zip.readAsText(item)
+} )
+
+console.log(usersDataArray)
